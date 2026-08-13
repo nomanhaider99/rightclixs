@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next *)",
+      "Bash(npx tsc *)",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\\\\\(x86\\\\\\)/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\\\\\(x86\\\\\\)/Microsoft/Edge/Application/**)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=15000 --window-size=1440,4200 --screenshot=\"C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Data-office-work-rightclixs-next\\\\04ed2440-f55f-4f24-b184-7415f8f83cc6\\\\scratchpad\\\\bottom.png\" \"http://localhost:3000/#process\")",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(node -e ' *)",
+      "Bash(curl -s -m 3 http://127.0.0.1:9222/json/version)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --force-prefers-reduced-motion --remote-debugging-port=9222 --user-data-dir=\"C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Data-office-work-rightclixs-next\\\\04ed2440-f55f-4f24-b184-7415f8f83cc6\\\\scratchpad\\\\cdp-profile2\" \"about:blank\")",
+      "Bash(curl -s -m 5 http://127.0.0.1:9222/json/version)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/services/seo)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files --virtual-time-budget=15000 --window-size=1500,2000 --screenshot=\"C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Data-office-work-rightclixs-next\\\\04ed2440-f55f-4f24-b184-7415f8f83cc6\\\\scratchpad\\\\pf\\\\sheet.png\" \"file:///C:/Users/Lenovo/AppData/Local/Temp/claude/C--Data-office-work-rightclixs-next/04ed2440-f55f-4f24-b184-7415f8f83cc6/scratchpad/pf/sheet.html\")",
+      "Bash(awk '{print $5}')",
+      "Bash(rm -f public/portfolio/*.jpg)",
+      "Bash(cp \"C:/Users/Lenovo/AppData/Local/Temp/claude/C--Data-office-work-rightclixs-next/04ed2440-f55f-4f24-b184-7415f8f83cc6/scratchpad/pf/\"*.png public/portfolio/)",
+      "Bash(npm install *)",
+      "PowerShell(git *)"
+    ]
+  }
+}
