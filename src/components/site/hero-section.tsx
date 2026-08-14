@@ -146,7 +146,15 @@ function HeroVisual() {
   }, [reduced]);
 
   return (
-    <div ref={rootRef} className="relative h-[420px] w-full [perspective:1400px] sm:h-[480px]">
+    // No intrinsic height: this is the flexible row of the 100svh hero, so it
+    // absorbs whatever vertical space the copy and wordmark leave behind. The
+    // scene inside is absolutely positioned, so it re-centres at any height.
+    // Scaled down on phones, where that leftover space is ~170px and the
+    // composition would otherwise overrun into the copy and the wordmark.
+    <div
+      ref={rootRef}
+      className="relative h-full w-full [perspective:1400px] max-sm:scale-[0.82]"
+    >
       <div data-blob className="pointer-events-none absolute -left-6 top-8 size-40 rounded-full bg-indigo/40 blur-3xl" />
       <div data-blob className="pointer-events-none absolute bottom-4 right-2 size-52 rounded-full bg-lavender/30 blur-3xl" />
 
@@ -183,8 +191,11 @@ function HeroVisual() {
           </div>
         </div>
 
-        {/* trusted-by card */}
-        <div data-hv data-float className="absolute bottom-[8%] left-[2%] w-44">
+        {/* Trusted-by card and chips are positioned as a percentage of the scene
+            box. On phones the 100svh hero leaves that box wide-and-short, which
+            collapses them onto the focal card — so phones show the growth card
+            alone. Tablets up keep the full composition. */}
+        <div data-hv data-float className="absolute bottom-[8%] left-[2%] w-44 max-sm:hidden">
           <div className="glass-card rounded-2xl p-4">
             <div className="flex -space-x-2">
               {[case1, case2, case3].map((src, i) => (
@@ -202,8 +213,8 @@ function HeroVisual() {
         </div>
 
         {/* floating service chips (kept minimal) */}
-        <Chip icon={PenTool} label="Design" className="right-[4%] top-[8%]" />
-        <Chip icon={Rocket} label="Launch" className="bottom-[16%] right-[10%]" />
+        <Chip icon={PenTool} label="Design" className="right-[4%] top-[8%] max-sm:hidden" />
+        <Chip icon={Rocket} label="Launch" className="bottom-[16%] right-[10%] max-sm:hidden" />
       </div>
     </div>
   );
@@ -242,11 +253,19 @@ export function HeroSection() {
   }, [reduced]);
 
   return (
-    <section ref={heroRef} className="hero-gradient relative overflow-hidden">
+    // Exactly one viewport tall, laid out as three flex rows: header, content,
+    // wordmark. `svh` not `vh` so mobile browser chrome can't push the wordmark
+    // off-screen. The `min-h-*` floors are an escape hatch — below them the hero
+    // grows a little rather than crushing the visual into the copy.
+    <section
+      ref={heroRef}
+      className="hero-gradient relative flex h-svh min-h-[780px] flex-col overflow-hidden lg:min-h-[720px]"
+    >
       <SiteHeader variant="onDark" />
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 pt-10 pb-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pt-16">
-        <div>
+      {/* Copy row is content-sized; the visual row takes the remainder. */}
+      <div className="mx-auto grid w-full max-w-7xl min-h-0 flex-1 grid-rows-[auto_minmax(0,1fr)] gap-8 px-5 pt-6 pb-4 lg:grid-cols-[1.05fr_0.95fr] lg:grid-rows-1 lg:gap-12 lg:pt-8">
+        <div className="flex flex-col justify-center">
           <h1
             data-hero
             className="max-w-2xl text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.03] font-semibold text-white"
@@ -255,11 +274,11 @@ export function HeroSection() {
             <br />
             Business <Em>Growth</Em>
           </h1>
-          <p data-hero className="mt-6 max-w-lg text-white/70">
+          <p data-hero className="mt-4 max-w-lg text-white/70 lg:mt-6">
             We craft custom web design and development solutions that elevate brands, boost
             business, and enhance lives. Prices begin at $149.
           </p>
-          <div data-hero className="mt-8 flex flex-wrap gap-3">
+          <div data-hero className="mt-6 flex flex-wrap gap-3 lg:mt-8">
             <Button asChild variant="onDark" size="pillLg">
               <Link href="/contact">
                 <span className="grid size-8 place-items-center rounded-full bg-indigo text-white">
@@ -278,7 +297,7 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <ul data-hero className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm text-white/65">
+          <ul data-hero className="mt-6 flex flex-wrap gap-x-7 gap-y-3 text-sm text-white/65 lg:mt-9">
             {["Distinctive Digital Designs", "W3C-Validated Development", "Cost-Competitive Packages"].map(
               (f) => (
                 <li key={f} className="flex items-center gap-2">
@@ -296,7 +315,7 @@ export function HeroSection() {
       <p
         ref={bigTextRef}
         aria-hidden
-        className="pointer-events-none w-full px-2 text-center text-[clamp(3.5rem,17vw,14rem)] leading-[0.85] font-extrabold tracking-tighter text-white select-none"
+        className="pointer-events-none w-full shrink-0 px-2 text-center text-[clamp(3.5rem,17vw,14rem)] leading-[0.85] font-extrabold tracking-tighter text-white select-none"
       >
         RIGHTCLIXS
       </p>
