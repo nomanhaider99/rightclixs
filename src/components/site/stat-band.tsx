@@ -32,6 +32,7 @@ export function StatBand({
   return (
     <Reveal
       stagger={0.08}
+      from="alternate"
       className={cn(
         "grid gap-px overflow-hidden rounded-3xl sm:grid-cols-3",
         dark ? "bg-white/10" : "bg-border",

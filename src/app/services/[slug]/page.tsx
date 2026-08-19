@@ -96,7 +96,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <section className="px-5 py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr]">
-          <Reveal>
+          <Reveal from="left">
             <div>
               <p className="section-label">Overview</p>
               <h2 className="mt-3 text-3xl leading-[1.15] font-medium text-heading sm:text-4xl">
@@ -111,7 +111,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
           </Reveal>
 
-          <Reveal y={32}>
+          <Reveal from="right">
             <div className="rounded-3xl border border-border bg-neutral-soft p-7">
               <h3 className="text-sm font-semibold tracking-wide text-heading/70">
                 What&apos;s included
@@ -187,7 +187,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               Explore more <Em>services</Em>
             </h2>
           </Reveal>
-          <Reveal stagger={0.06} className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal
+            stagger={0.06}
+            from="alternate"
+            className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          >
             {others.map((o) => (
               <ServiceCard key={o.slug} service={o} />
             ))}

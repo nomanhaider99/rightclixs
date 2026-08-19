@@ -30,14 +30,16 @@ export function AboutSection() {
     const items = el.querySelectorAll("[data-about-item]");
     const ctx = gsap.context(() => {
       if (reduced) {
-        gsap.set(items, { opacity: 1, y: 0 });
+        gsap.set(items, { opacity: 1, x: 0, y: 0 });
         return;
       }
+      // Alternating entrance: even cards from the left, odd from the right.
+      const dx = window.innerWidth < 640 ? 34 : 72;
       gsap.from(items, {
         opacity: 0,
-        y: 28,
-        duration: 0.6,
-        ease: "power2.out",
+        x: (i: number) => (i % 2 === 0 ? -dx : dx),
+        duration: 0.75,
+        ease: "power3.out",
         stagger: 0.08,
         scrollTrigger: { trigger: el, start: "top 80%", once: true },
       });

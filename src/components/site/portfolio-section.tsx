@@ -29,7 +29,7 @@ export function PortfolioSection() {
         <Reveal>
           <SectionHeading
             eyebrow="Our Work"
-            subtext="Websites and apps we've designed, built and shipped — click any project to view the full page design."
+            subtext="Site designs across the industries we work in — pick a category, then click any project to view the full page."
           >
             See the Work Behind the <Em>Results</Em>
           </SectionHeading>

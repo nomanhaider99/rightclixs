@@ -36,7 +36,11 @@ export function TrustBand({ className }: { className?: string }) {
   return (
     <section className={cn("border-t border-border bg-background px-5 py-16 sm:py-20", className)}>
       <div className="mx-auto max-w-7xl">
-        <Reveal stagger={0.07} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal
+          stagger={0.07}
+          from="alternate"
+          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {guarantees.map((g) => (
             <div key={g.title} className="rounded-3xl bg-neutral-soft p-6">
               <span className="grid size-11 place-items-center rounded-xl bg-lavender text-indigo">

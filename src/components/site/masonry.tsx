@@ -34,18 +34,19 @@ export function Masonry({ items, onOpen }: MasonryProps) {
     const tiles = el.querySelectorAll("[data-tile]");
     const ctx = gsap.context(() => {
       if (reduced) {
-        gsap.set(tiles, { opacity: 1, scale: 1, y: 0 });
+        gsap.set(tiles, { opacity: 1, scale: 1, x: 0, y: 0 });
         return;
       }
+      const dx = window.innerWidth < 640 ? 34 : 64;
       gsap.fromTo(
         tiles,
-        { opacity: 0, scale: 0.96, y: 16 },
+        { opacity: 0, scale: 0.96, x: (i: number) => (i % 2 === 0 ? -dx : dx) },
         {
           opacity: 1,
           scale: 1,
-          y: 0,
-          duration: 0.45,
-          ease: "power2.out",
+          x: 0,
+          duration: 0.55,
+          ease: "power3.out",
           stagger: 0.05,
           overwrite: true,
         },

@@ -19,13 +19,22 @@ function PricingGrid({ category }: { category: PkgCategory }) {
     const cards = el.querySelectorAll("[data-card]");
     const ctx = gsap.context(() => {
       if (reduced) {
-        gsap.set(cards, { opacity: 1, y: 0, scale: 1 });
+        gsap.set(cards, { opacity: 1, x: 0, y: 0, scale: 1 });
         return;
       }
+      const dx = window.innerWidth < 640 ? 34 : 64;
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 20, scale: 0.98 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power2.out", stagger: 0.06, overwrite: true },
+        { opacity: 0, x: (i: number) => (i % 2 === 0 ? -dx : dx), scale: 0.98 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.55,
+          ease: "power3.out",
+          stagger: 0.06,
+          overwrite: true,
+        },
       );
     }, el);
     return () => ctx.revert();

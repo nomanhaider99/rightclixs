@@ -57,46 +57,48 @@ export function ServicesSection() {
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-center">
           {/* Left — Option Wheel */}
-          <Reveal y={32}>
+          <Reveal from="left">
             <OptionWheel items={wheelItems} onChange={setActive} />
           </Reveal>
 
           {/* Right — active service detail */}
-          <div
-            ref={panelRef}
-            aria-live="polite"
-            className="lg:border-l lg:border-border lg:pl-12"
-          >
-            <span
-              data-panel-item
-              className="inline-grid size-14 place-items-center rounded-2xl bg-lavender text-indigo"
+          <Reveal from="right">
+            <div
+              ref={panelRef}
+              aria-live="polite"
+              className="lg:border-l lg:border-border lg:pl-12"
             >
-              <Icon className="size-7" />
-            </span>
-
-            <p data-panel-item className="mt-6 text-sm text-heading/45">
-              {String(active + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
-            </p>
-
-            <h3 data-panel-item className="mt-2 text-3xl font-medium text-heading sm:text-4xl">
-              {svc.name}
-            </h3>
-
-            <p data-panel-item className="mt-4 max-w-lg leading-relaxed text-heading/65">
-              {svc.description}
-            </p>
-
-            <div data-panel-item className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
-              <ContactCtaButton preset={{ service: svc.name }}>Get started</ContactCtaButton>
-              <Link
-                href={`/services/${svc.slug}`}
-                className="group inline-flex items-center gap-1 text-sm font-medium text-indigo transition-colors hover:text-indigo/80"
+              <span
+                data-panel-item
+                className="inline-grid size-14 place-items-center rounded-2xl bg-lavender text-indigo"
               >
-                Learn more
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+                <Icon className="size-7" />
+              </span>
+
+              <p data-panel-item className="mt-6 text-sm text-heading/45">
+                {String(active + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+              </p>
+
+              <h3 data-panel-item className="mt-2 text-3xl font-medium text-heading sm:text-4xl">
+                {svc.name}
+              </h3>
+
+              <p data-panel-item className="mt-4 max-w-lg leading-relaxed text-heading/65">
+                {svc.description}
+              </p>
+
+              <div data-panel-item className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+                <ContactCtaButton preset={{ service: svc.name }}>Get started</ContactCtaButton>
+                <Link
+                  href={`/services/${svc.slug}`}
+                  className="group inline-flex items-center gap-1 text-sm font-medium text-indigo transition-colors hover:text-indigo/80"
+                >
+                  Learn more
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

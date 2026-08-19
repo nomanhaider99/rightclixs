@@ -80,7 +80,7 @@ export function ContactContent() {
 
       <section className="px-5 py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.3fr]">
-          <Reveal className="space-y-4">
+          <Reveal from="left" className="space-y-4">
             {[
               { icon: Phone, label: "Call us", value: "+1 (833) 945-5567", href: "tel:+18339455567" },
               {
@@ -123,7 +123,7 @@ export function ContactContent() {
             </div>
           </Reveal>
 
-          <Reveal>
+          <Reveal from="right">
             <form onSubmit={onSubmit} className="rounded-3xl bg-neutral-soft p-7 sm:p-10">
               <h2 className="text-2xl font-medium text-heading">Request a quote</h2>
               <div className="mt-7 grid gap-5 sm:grid-cols-2">
@@ -203,7 +203,7 @@ export function ContactContent() {
           <h2 className="max-w-2xl text-2xl font-medium text-heading sm:text-3xl">
             What happens <Em>next.</Em>
           </h2>
-          <Reveal stagger={0.08} className="mt-10 grid gap-5 md:grid-cols-3">
+          <Reveal stagger={0.08} from="alternate" className="mt-10 grid gap-5 md:grid-cols-3">
             {nextSteps.map((s, i) => (
               <div key={s.title} className="rounded-3xl border border-border bg-background p-7">
                 <div className="flex items-center gap-3">

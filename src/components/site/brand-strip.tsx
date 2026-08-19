@@ -13,6 +13,8 @@ export function BrandStrip() {
         </Reveal>
         <Reveal
           stagger={0.06}
+          from="alternate"
+          x={40}
           className="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
         >
           {brands.map((b, i) => (

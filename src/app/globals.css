@@ -132,6 +132,13 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    /*
+     * Cards enter from off to the left/right (see <Reveal from="…">), which
+     * briefly puts them past the viewport edge. `clip` hides that without
+     * creating a scroll container, so the fixed header and any sticky
+     * positioning inside the page keep working — `hidden` would break both.
+     */
+    overflow-x: clip;
   }
 
   h1,

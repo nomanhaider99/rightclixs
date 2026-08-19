@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
 
+import { BubbleCursor } from "@/components/site/bubble-cursor";
 import { ContactDialogProvider } from "@/components/site/contact-dialog";
 import { SupportWidget } from "@/components/site/support-widget";
 import { Toaster } from "@/components/ui/sonner";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ContactDialogProvider>{children}</ContactDialogProvider>
         <SupportWidget />
+        <BubbleCursor />
         <Toaster position="top-center" richColors />
       </body>
     </html>

@@ -51,7 +51,7 @@ export function FaqSection({
         </Reveal>
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-[1.6fr_1fr] lg:items-start">
-          <Reveal>
+          <Reveal from="left">
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((f) => (
                 <AccordionItem
@@ -70,7 +70,7 @@ export function FaqSection({
             </Accordion>
           </Reveal>
 
-          <Reveal y={32}>
+          <Reveal from="right">
             <div className="rounded-3xl border border-border bg-neutral-soft p-7">
               <span className="grid size-11 place-items-center rounded-xl bg-lavender text-indigo">
                 <HelpCircle className="size-5" />

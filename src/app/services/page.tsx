@@ -61,7 +61,11 @@ export default function ServicesPage() {
             </div>
           </Reveal>
 
-          <Reveal stagger={0.05} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal
+            stagger={0.05}
+            from="alternate"
+            className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          >
             {services.map((s) => (
               <ServiceCard key={s.slug} service={s} />
             ))}

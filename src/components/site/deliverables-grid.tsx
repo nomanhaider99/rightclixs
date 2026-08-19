@@ -48,7 +48,7 @@ export function DeliverablesGrid({ items }: { items: ServiceDeliverable[] }) {
 
   return (
     <div ref={wrapRef}>
-      <Reveal stagger={0.07} className="grid gap-5 sm:grid-cols-2">
+      <Reveal stagger={0.07} from="alternate" className="grid gap-5 sm:grid-cols-2">
         {items.map((d, i) => (
           <div
             key={d.title}

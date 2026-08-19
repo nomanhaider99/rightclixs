@@ -23,7 +23,7 @@ export function WhoFor({
   return (
     <section className="bg-neutral-soft px-5 py-16 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
-        <Reveal>
+        <Reveal from="left">
           <div>
             <p className="section-label">Is this you?</p>
             <h2 className="mt-3 text-3xl leading-[1.15] font-medium text-heading sm:text-4xl">
@@ -41,7 +41,7 @@ export function WhoFor({
           </div>
         </Reveal>
 
-        <Reveal y={32}>
+        <Reveal from="right">
           <div>
             <ul className="space-y-4">
               {points.map((p) => (
