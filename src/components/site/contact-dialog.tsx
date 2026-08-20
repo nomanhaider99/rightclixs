@@ -198,7 +198,7 @@ function QuoteForm({ preset, onDone }: { preset: ContactPreset; onDone: () => vo
         </Label>
       </div>
 
-      <Button type="submit" variant="cta" size="pillLg">
+      <Button type="submit" variant="brand" size="pillLg">
         <span className="grid size-8 place-items-center rounded-full bg-white/25">
           <Send className="size-4" />
         </span>

@@ -187,7 +187,7 @@ export function ContactContent() {
                 </Label>
               </div>
 
-              <Button type="submit" variant="cta" size="pillLg" className="mt-7">
+              <Button type="submit" variant="brand" size="pillLg" className="mt-7">
                 <span className="grid size-8 place-items-center rounded-full bg-white/25">
                   <Send className="size-4" />
                 </span>
